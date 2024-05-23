@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-100-gradient: hsl(6, 100%, 80%);
+  --clr-200-gradient: hsl(335, 100%, 65%);
+
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+body {
+  position: relative;
+}
+
+.dynamic-img {
+  position: absolute;
+  background-image: url(/images/bg-mobile.png);
+  width: 100dvw;
+  height: 100dvh;
+  z-index: -9999;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  transform: translateY(4em);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.sub-container {
+  background-color: var(--Dark-Blue);
+  width: 100%;
+  padding: 3em 2em;
+}
+.header {
+  border-radius: 0.6em 6em 0.6em 0.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+}
+[alt="logo"] {
+  width: 70%;
+  max-width: 10em;
+}
+
+.icon-svgs {
+  display: flex;
+  gap: 1em;
+}
+
+.icon-svgs img {
+  background-color: var(--Very-Dark-Blue);
+  padding: 1em;
+  width: 70%;
+
+  border-radius: 0.6em;
+}
+
+.footer {
+  border-radius: 0.6em;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer p {
+  color: var(--Grayish-Blue);
+  font-size: clamp(0.8em, 1em, 1.4em);
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+
+.progress-wrapper {
+  background-color: var(--Very-Dark-Blue);
+  width: 100%;
+  padding: 0.65em;
+  border-radius: 2em;
+}
+
+.progress {
+  width: 80%;
+
+  background: linear-gradient(
+    to left,
+    var(--clr-100-gradient),
+    var(--clr-200-gradient)
+  );
+  padding: 0.6em;
+  border-radius: 0.6em;
+  position: relative;
+}
+
+/* The progress bar circle is a pseudo element of after make it a block level element with display block to have it rounded */
+.progress::after {
+  content: "";
+  background-color: var(--Pale-Blue);
+  padding: 0.5em;
+  border-radius: 100%;
+  display: block;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 90%;
+}
+
+.footer span {
+  color: var(--Pale-Blue);
+}
+
+.bottom-text {
+  color: var(--Pale-Blue);
+  font-size: clamp(0.6rem, 0.7rem, 1rem);
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 0.6em;
+  margin-top: 0.6em;
+}
+
+.footer {
+  position: relative;
+}
+
+.pop-over {
+  position: absolute;
+  background-color: hsl(0, 0%, 100%);
+  transform: translate(2em, 7em);
+  border-radius: 0.6em;
+
+  padding: 0.6em 0.8em;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--Grayish-Blue);
+}
+
+.pop-over span {
+  font-size: 1.6rem;
+
+  color: var(--Very-Dark-Blue);
+}
+@media (width > 600px) {
+  body {
+    position: relative;
+    background-color: var(--Very-Dark-Blue);
+  }
+  .dynamic-img {
+    background-image: url(/images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(30%);
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    gap: 1em;
+    right: 50%;
+    transform: translateY(124%);
+
+    /* transform: translate(50%,25%); */
+  }
+  .header {
+    width: 60%;
+    transition: scale 200ms ease-out;
+  }
+
+  .header:hover {
+    scale: 1.2;
+  }
+  .footer {
+    width: 90%;
+    transition: scale 200ms ease-out;
+  }
+  .footer:hover {
+    scale: 1.2;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
